@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 
+//https://spring-projects.ru/guides/rest-service/
+
 @ComponentScan
 @EnableAutoConfiguration
 public class Application {
@@ -49,6 +51,6 @@ public class Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        SpringApplication.run(Application.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
