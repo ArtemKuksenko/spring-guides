@@ -21,6 +21,11 @@ public class FileWork {
 
     }
 
+    public boolean isFile(String name) {
+        File dir = new File(name);
+        return dir.isFile();
+    }
+
     public String readFile(String name){
         String result = "";
         try(FileInputStream fin=new FileInputStream(name)) {

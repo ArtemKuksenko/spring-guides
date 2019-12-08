@@ -19,10 +19,14 @@ public class Cars {
             return;
         }
         Car car = new Car();
-        car.model = model;
-        car.year = year;
-        car.motorVolume = motorVolume;
-        car.mileageStart = mileage;
+        car.setModel(model);
+//        car.model = model;
+        car.setYear(year);
+//        car.year = year;
+        car.setMotorVolume(motorVolume);
+//        car.motorVolume = motorVolume;
+        car.setMileageStart(mileage);
+//        car.mileageStart = mileage;
 
         car.money = new ArrayList<Integer>();
         car.liter = new ArrayList<Integer>();
@@ -48,7 +52,7 @@ public class Cars {
 
     public double calcFuelСonsumption(String number) {
         Car car = this.cars.get(number);
-        int mileage = car.mileage.get( car.mileage.size() - 1 ) - car.mileageStart;
+        int mileage = car.mileage.get( car.mileage.size() - 1 ) - car.getMileageStart();
         double fuel = this.sum(car.liter);
         return (fuel / mileage) * 100;
     }

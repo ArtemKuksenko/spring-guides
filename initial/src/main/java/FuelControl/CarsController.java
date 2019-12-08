@@ -1,7 +1,10 @@
 package FuelControl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.io.StringWriter;
 import java.util.concurrent.atomic.AtomicLong;
 
 //https://spring-projects.ru/guides/handling-form-submission/
@@ -9,18 +12,28 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class CarsController {
 
-//    private static final String template = "Hello, %s!";
-//    private final AtomicLong counter = new AtomicLong();
+    @PostMapping(path = "/addcar", consumes = "application/json", produces = "application/json")
+    public String addCar(@RequestBody Car newCar) {
+        FileWork file = new FileWork();
+        if ( file.isFile( newCar.getNumber()) )
+            return "{\"status\":\"error\",\"error\":\"this car is registrated\"}";
 
-//    @RequestMapping(value = "/hi", method= RequestMethod.POST)
-//    public Greeting greeting(@RequestParam(value="name", required=false, defaultValue="World") String name) {
-//        return new Greeting(counter.incrementAndGet(),
-//                String.format(template, name));
-//    }
+        ObjectMapper mapper = new ObjectMapper();
+        StringWriter writer = new StringWriter();
+        try {
+            mapper.writeValue(writer, newCar);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String result = writer.toString();
+        try {
+            file.writeFile(newCar.getNumber(),result);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "{\"status\":\"ok\"}";
 
-    @PostMapping(path = "/car", consumes = "application/json", produces = "application/json")
-    public String carcar(@RequestBody NewCarModel newCar) {
-        return newCar.Hello();
+//        return "newCar";
     }
 
 }
