@@ -18,8 +18,8 @@ public class CarsController {
 //                String.format(template, name));
 //    }
 
-    @PostMapping("/car")
-    public String car(@RequestBody NewCarModel newCar) {
+    @PostMapping(path = "/car", consumes = "application/json", produces = "application/json")
+    public String carcar(@RequestBody NewCarModel newCar) {
         return newCar.Hello();
     }
 
