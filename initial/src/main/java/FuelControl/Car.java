@@ -21,9 +21,9 @@ public class Car {
     private float motorVolume;
     private int mileageStart;
     private String number;
-    public ArrayList<Integer> money;
-    public ArrayList<Integer> liter;
-    public ArrayList<Integer> mileage;
+    public ArrayList<Integer> money = new ArrayList<Integer>();
+    public ArrayList<Float> liter = new ArrayList<Float>();
+    public ArrayList<Integer> mileage = new ArrayList<Integer>();
     Car() { }
 
     public float getMotorVolume() {
@@ -34,7 +34,7 @@ public class Car {
         this.motorVolume = motorVolume;
     }
 
-    public int getMileageStart() {
+    public float getMileageStart() {
         return mileageStart;
     }
 

@@ -29,14 +29,14 @@ public class Cars {
 //        car.mileageStart = mileage;
 
         car.money = new ArrayList<Integer>();
-        car.liter = new ArrayList<Integer>();
+        car.liter = new ArrayList<Float>();
         car.mileage = new ArrayList<Integer>();
 
         this.cars.put(number,car);
 
     }
 
-    public void addFuel(String number,int money, int liter, int mileage) {
+    public void addFuel(String number,int money, float liter, int mileage) {
         Car car = this.cars.get(number);
         car.money.add(money);
         car.liter.add(liter);
@@ -50,12 +50,12 @@ public class Cars {
         return sum;
     }
 
-    public double calcFuelСonsumption(String number) {
-        Car car = this.cars.get(number);
-        int mileage = car.mileage.get( car.mileage.size() - 1 ) - car.getMileageStart();
-        double fuel = this.sum(car.liter);
-        return (fuel / mileage) * 100;
-    }
+//    public double calcFuelСonsumption(String number) {
+//        Car car = this.cars.get(number);
+//        int mileage = car.mileage.get( car.mileage.size() - 1 ) - car.getMileageStart();
+//        double fuel = this.sum(car.liter);
+//        return (fuel / mileage) * 100;
+//    }
 
     public int sumMoney(Car car) {
         return this.sum(car.money);
