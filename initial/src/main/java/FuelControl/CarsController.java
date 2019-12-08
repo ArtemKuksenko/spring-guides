@@ -19,8 +19,8 @@ public class CarsController {
 //    }
 
     @PostMapping("/car")
-    public Car car(@RequestBody Car newCar) {
-        return newCar;
+    public String car(@RequestBody NewCarModel newCar) {
+        return newCar.Hello();
     }
 
 }

@@ -17,6 +17,8 @@ public class Application {
 
     public static void main(String[] args) {
 
+        SpringApplication.run(Application.class, args);
+
         Cars cars = new Cars();
         cars.addCar("taz",2006,1,110000,"o000oo123");
         cars.addFuel("o000oo123",500,10,110100);
@@ -51,6 +53,6 @@ public class Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        SpringApplication.run(Application.class, args);
+
     }
 }
